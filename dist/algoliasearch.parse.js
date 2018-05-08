@@ -3143,6 +3143,7 @@ module.exports =
 	var exitPromise = __webpack_require__(18);
 	var IndexCore = __webpack_require__(5);
 	var store = __webpack_require__(22);
+	var clone = __webpack_require__(12);
 
 	// We will always put the API KEY in the JSON body in case of too long API KEY,
 	// to avoid query string being too long and failing in various conditions (our server limit, browser limit,
@@ -3179,7 +3180,6 @@ module.exports =
 	function AlgoliaSearchCore(applicationID, apiKey, opts) {
 	  var debug = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"debug\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))('algoliasearch');
 
-	  var clone = __webpack_require__(12);
 	  var isArray = __webpack_require__(16);
 	  var map = __webpack_require__(17);
 
@@ -3785,7 +3785,6 @@ module.exports =
 	      throw new Error(usage);
 	    }
 
-	    var clone = __webpack_require__(12);
 	    var omit = __webpack_require__(13);
 
 	    var indexName = query.indexName;
@@ -3938,7 +3937,6 @@ module.exports =
 	};
 
 	AlgoliaSearchCore.prototype._setHostIndexByType = function(hostIndex, hostType) {
-	  var clone = __webpack_require__(12);
 	  var newHostIndexes = clone(this._hostIndexes);
 	  newHostIndexes[hostType] = hostIndex;
 	  this._partialAppIdDataUpdate({hostIndexes: newHostIndexes});
@@ -4130,7 +4128,7 @@ module.exports =
 
 	
 
-	module.exports = '3.27.1';
+	module.exports = '3.27.2';
 
 
 /***/ })

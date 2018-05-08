@@ -4,6 +4,7 @@ var errors = require('./errors');
 var exitPromise = require('./exitPromise.js');
 var IndexCore = require('./IndexCore.js');
 var store = require('./store.js');
+var clone = require('./clone.js');
 
 // We will always put the API KEY in the JSON body in case of too long API KEY,
 // to avoid query string being too long and failing in various conditions (our server limit, browser limit,
@@ -40,7 +41,6 @@ var RESET_APP_DATA_TIMER =
 function AlgoliaSearchCore(applicationID, apiKey, opts) {
   var debug = require('debug')('algoliasearch');
 
-  var clone = require('./clone.js');
   var isArray = require('isarray');
   var map = require('./map.js');
 
@@ -646,7 +646,6 @@ AlgoliaSearchCore.prototype.searchForFacetValues = function(queries) {
       throw new Error(usage);
     }
 
-    var clone = require('./clone.js');
     var omit = require('./omit.js');
 
     var indexName = query.indexName;
@@ -799,7 +798,6 @@ AlgoliaSearchCore.prototype._getHostIndexByType = function(hostType) {
 };
 
 AlgoliaSearchCore.prototype._setHostIndexByType = function(hostIndex, hostType) {
-  var clone = require('./clone');
   var newHostIndexes = clone(this._hostIndexes);
   newHostIndexes[hostType] = hostIndex;
   this._partialAppIdDataUpdate({hostIndexes: newHostIndexes});
